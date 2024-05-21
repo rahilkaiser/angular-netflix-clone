@@ -1,15 +1,14 @@
 import {Router} from "@angular/router";
-
-declare var google: any;
 import {Component, OnInit} from '@angular/core';
-import {window} from "rxjs";
 import {HeaderComponent} from "./components/header/header.component";
+import {BannerComponent} from "./components/banner/banner.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-    HeaderComponent
+    HeaderComponent,
+    BannerComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
@@ -25,16 +24,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.loadUserData();
   }
-
-  signOut() {
-    google.accounts.id.disableAutoSelect();
-    sessionStorage.removeItem('access_token');
-    this.router.navigateByUrl('/' ).then( () => {
-      document.location.reload();
-    });
-  }
-
-
 
   private loadUserData(): void {
     const token = sessionStorage.getItem('access_token');

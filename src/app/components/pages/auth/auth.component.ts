@@ -11,11 +11,9 @@ import {Router} from "@angular/router";
 export class AuthComponent implements OnInit{
 
   constructor(private router: Router) {
-
   }
 
   ngOnInit(): void {
-    // this.renderer.setProperty(document, 'onSignIn', this.onSignIn.bind(this));
     (window as any).onSignIn = this.onSignIn.bind(this);
   }
 
@@ -32,6 +30,7 @@ export class AuthComponent implements OnInit{
       //store the token in session
       sessionStorage.setItem('access_token', JSON.stringify(payload));
       //navigate to home
+
       this.router.navigate(['home']).then(() => {
         document.location.reload();
       })

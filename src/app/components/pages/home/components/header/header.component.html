@@ -2,7 +2,8 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <div class="flex items-center">
-        <img class="h-16 w-32" src="/assets/netflix-logo.png" alt="Netflix">
+        <button (click)="this.navigateToHome()"><img class="h-16 w-32" src="/assets/netflix-logo.png" alt="Netflix">
+        </button>
         <div class="hidden md:block">
           <div class="ml-10 flex space-x-4">
             <a href="#" class="text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
@@ -17,7 +18,8 @@
       <div class="hidden md:block">
         <div class="ml-4 flex items-center md:ml-6">
           <div class="ml-3 relative">
-            <div>
+            <div class="flex justify-between items-center">
+              <span class="text-white font-bold text-xs pr-4">Welcome {{this.userName}}</span>
               <button (click)="toggleMenu()" class="rounded-full">
                 <img class="h-8 w-8 rounded-full" src="{{this.profileImg}}" alt="">
               </button>
@@ -25,7 +27,7 @@
             <div [ngClass]="{'block': isMenuOpen, 'hidden': !isMenuOpen}" class="absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1">
               <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem">Your Profile</a>
               <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem">Settings</a>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem">Sign out</a>
+              <a (click)="signOut()" href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem">Sign out</a>
             </div>
           </div>
         </div>
