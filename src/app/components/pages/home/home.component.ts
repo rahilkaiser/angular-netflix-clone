@@ -3,11 +3,14 @@ import {Router} from "@angular/router";
 declare var google: any;
 import {Component, OnInit} from '@angular/core';
 import {window} from "rxjs";
+import {HeaderComponent} from "./components/header/header.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [
+    HeaderComponent
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

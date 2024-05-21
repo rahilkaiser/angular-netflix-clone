@@ -1,0 +1,53 @@
+<div class="sticky top-0 z-50 bg-black">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center">
+        <img class="h-16 w-32" src="/assets/netflix-logo.png" alt="Netflix">
+        <div class="hidden md:block">
+          <div class="ml-10 flex space-x-4">
+            <a href="#" class="text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+            <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">TV Shows</a>
+            <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Movies</a>
+            <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">New & Popular</a>
+            <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">My List</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hidden md:block">
+        <div class="ml-4 flex items-center md:ml-6">
+          <div class="ml-3 relative">
+            <div>
+              <button (click)="toggleMenu()" class="rounded-full">
+                <img class="h-8 w-8 rounded-full" src="{{this.profileImg}}" alt="">
+              </button>
+            </div>
+            <div [ngClass]="{'block': isMenuOpen, 'hidden': !isMenuOpen}" class="absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1">
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem">Your Profile</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem">Settings</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem">Sign out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!--      Mobile-->
+      <div class="mr-2 flex md:hidden">
+        <button (click)="toggleMenu()" class="bg-gray-900 p-2 rounded-md text-gray-400 hover:bg-gray-800">
+          <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div [ngClass]="{'block': isMenuOpen, 'hidden': !isMenuOpen}" class="md:hidden" id="mobile-menu">
+    <div class="px-2 pt-2 pb-3 sm:px-3">
+      <a href="#" class="text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+      <a href="#" class="text-gray-300 hover:text-white block px-3 py-2 font-medium">TV Shows</a>
+      <a href="#" class="text-gray-300 hover:text-white block px-3 py-2 font-medium">Movies</a>
+      <a href="#" class="text-gray-300 hover:text-white block px-3 py-2 font-medium">New & Popular</a>
+      <a href="#" class="text-gray-300 hover:text-white block px-3 py-2 font-medium">My List</a>
+    </div>
+  </div>
+</div>
