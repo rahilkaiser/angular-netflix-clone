@@ -74,4 +74,11 @@ export class AuthService {
     localStorage.removeItem('user');
     return this.firebaseAuth.signOut();
   }
+
+  signInAnonymously(){
+    const promise = this.firebaseAuth.signInAnonymously().then(
+      ()=> {}
+    );
+    return from(promise);
+  }
 }

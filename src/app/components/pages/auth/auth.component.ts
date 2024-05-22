@@ -26,7 +26,11 @@ export class AuthComponent implements OnInit{
 
 
   signInAnonymously() {
-    this.router.navigate(['home']);
+    this.authService.signInAnonymously().subscribe({
+      next: result => {
+        this.router.navigate(['home']);
+      }
+    })
   }
 
   loginEmailPassword() {
