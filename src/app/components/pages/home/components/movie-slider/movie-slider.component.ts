@@ -7,7 +7,6 @@ import {ImagePipe} from "../../../../../pipes/image.pipe";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {MovieDetailsModalComponent} from "../movie-details-modal/movie-details-modal.component";
 
-
 @Component({
   selector: 'app-movie-slider',
   standalone: true,
@@ -79,9 +78,6 @@ export class MovieSliderComponent {
   openModal(movie: Movie) {
     const modalRef = this.modalService.open(MovieDetailsModalComponent, {windowClass: 'modal-holder',animation: true});
     modalRef.componentInstance.movie = movie;
-  }
-
-  ngOnInit(): void {
   }
 
   skipSlides(direction: string) {

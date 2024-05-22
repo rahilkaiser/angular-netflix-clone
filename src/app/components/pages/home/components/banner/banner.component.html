@@ -12,7 +12,7 @@
       {{ this.movie?.title}}
     </h1>
     <p class="text-base max-w-lg mb-6 animated-element description-animation">
-      {{ this.movie?.overview! | description:140 }}
+      {{ this.movie ? (this.movie.overview | description:140) : '' }}
     </p>
 
     <div class="flex space-x-4">

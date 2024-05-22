@@ -16,7 +16,7 @@
 </div>
 
 <div class="modal-body px-4 bg-black text-white">
-  <h3 class="text-2xl font-bold mb-2">{{this.movie?.title}}</h3>
+  <h3 class="text-2xl font-bold mb-2">{{(!movie?.title || movie?.title === '') ? movie?.original_name : movie?.title }}</h3>
   <p class="text-gray-300 mb-4">{{this.movie?.overview}}</p>
   <hr>
 </div>

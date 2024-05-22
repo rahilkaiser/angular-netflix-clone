@@ -5,7 +5,7 @@ import {BannerComponent} from "./components/banner/banner.component";
 import {VideoService} from "../../../services/video.service";
 import {MovieSliderComponent} from "./components/movie-slider/movie-slider.component";
 import {Movie} from "../../../models/movie.model";
-import {forkJoin, map, Observable, Subscription} from "rxjs";
+import {forkJoin, map, Subscription} from "rxjs";
 import {AsyncPipe} from "@angular/common";
 import {DescriptionPipe} from "../../../pipes/description.pipe";
 
@@ -106,32 +106,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       console.log(this.userName);
     }
   }
-
-
-// test = {
-//     page: 1,
-//   results: [
-//     {
-//       adult: false,
-//       backdrop_path: "",
-//       genre_ids: [1,2,3],
-//       id: 82934,
-//       original_language: "en",
-//       original_title: "Godzilla x Kong",
-//       overview: "Following their explosive Desscription",
-//       popularity: 736.08,
-//       poster_path: "",
-//       release_date: "2024-03-27",
-//       title: "Godzilla x Kong",
-//       video: false,
-//       vote_average: 7.25,
-//       vote_count: 1882
-//     }
-//   ],
-//   total_pages: 46622,
-//   total_results: 932435
-// }
-
 }
 
 

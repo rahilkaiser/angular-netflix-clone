@@ -24,7 +24,7 @@
                 <img class="h-8 w-8 rounded-full" src="{{this.profileImg}}" alt="">
               </button>
             </div>
-            <div [ngClass]="{'block': isMenuOpen, 'hidden': !isMenuOpen}" class="absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1">
+            <div [ngClass]="{'block': isMenuOpen, 'hidden': !isMenuOpen}" class="bg-white absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1">
               <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem">Your Profile</a>
               <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem">Settings</a>
               <a (click)="signOut()" href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem">Sign out</a>

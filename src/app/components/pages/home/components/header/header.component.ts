@@ -38,8 +38,8 @@ export class HeaderComponent {
   signOut() {
     google.accounts.id.disableAutoSelect();
     sessionStorage.removeItem('access_token');
-    // this.router.navigateByUrl('/' ).then( () => {
-    //   document.location.reload();
-    // });
+    this.router.navigateByUrl('/' ).then( () => {
+      document.location.reload();
+    });
   }
 }

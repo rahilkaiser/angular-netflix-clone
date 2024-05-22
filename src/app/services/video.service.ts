@@ -1,14 +1,11 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {Movie} from "../models/movie.model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class VideoService {
 
-   private url = 'https://api.themoviedb.org/3/movie/changes?page=1';
    private options = {
     params: {
       include_adults: 'false',
@@ -32,14 +29,6 @@ export class VideoService {
 
   getTvShows() {
     return this.httpClient.get('https://api.themoviedb.org/3/discover/tv', this.options)
-  }
-
-  // getRatedMovies() {
-  //   return this.httpClient.get('https://api.themoviedb.org/3/guest_session/guest_session_id/rated/movies', this.options)
-  // }
-
-  getBannerImage(id: number) {
-    return this.httpClient.get(`https://api.themoviedb.org/3/movie/${id}/images`, this.options)
   }
 
   getBannerVideo(id: number) {

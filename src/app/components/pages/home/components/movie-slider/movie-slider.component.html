@@ -14,18 +14,16 @@
                           #slickModal="slick-carousel"
                           [config]="slideConfig">
         <div ngxSlickItem *ngFor="let video of videos" class="px-2" >
-          <div class="relative group" (click)="this.openModal(video)">
-            <div
-              class="bg-gray-800 rounded-md transform transition-transform duration-300 group-hover:scale-105 group-hover:z-50 overflow-visible">
-              <img src="{{ video.poster_path | image }}" alt="Movie Poster"
-                   class="w-full h-full object-cover rounded-md "/>
-              <div
-                class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-75 p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm sm:text-base md:text-lg lg:text-xl xl:text-5xl">
-                <h3 class="text-lg font-bold">{{ video.title }}</h3>
-                <p class="text-sm">{{ video.overview | description:200}}</p>
+            <div class="relative group" (click)="this.openModal(video)">
+              <div class="bg-gray-800 rounded-md transform transition-transform duration-300 group-hover:scale-105 group-hover:z-50 overflow-visible">
+                <img src="{{ video.poster_path | image }}" alt="Movie Poster"
+                     class="w-full h-full object-cover rounded-md "/>
+              </div>
+              <div class="video-info">
+                <h3 class="text-lg font-bold">{{ (!video.title || video.title === '') ? video.original_name : video.title }}</h3>
+                <p class="text-sm">{{ video.overview | description:200 }}</p>
               </div>
             </div>
-          </div>
         </div>
       </ngx-slick-carousel>
     </div>
