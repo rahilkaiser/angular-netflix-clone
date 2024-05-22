@@ -53,10 +53,10 @@ Ensure you have the following installed:
    ```bash
    git clone https://github.com/rahilkaiser/angular-netflix-clone.git
    cd angular-netflix-clone
-2. **Clone the repository**:
+2. **Install dependencies**:
    ```bash
    npm install
-3. **Clone the repository**:
+3. **Run the Angular application**:
    ```bash
    ng serve
 Navigate to http://localhost:4200/ in your web browser to view the application.
