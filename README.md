@@ -12,7 +12,7 @@
 
 Welcome to the Angular Netflix Clone project! This application serves as a clone of Netflix, built to enhance and showcase Angular skills. The project leverages Angular with TailwindCSS and Bootstrap for styling. The application fetches video data using the TMDB API.
 
-![App Screenshot](link_to_image)
+![AngularNetflixClone](https://github.com/rahilkaiser/angular-netflix-clone/assets/95457266/2689d8e8-8f3f-4b41-a403-e3c75b3a883c)
 
 ## Tech Stack
 
