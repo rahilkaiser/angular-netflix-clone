@@ -2,17 +2,13 @@
   <p class="text-white text-2xl mb-4 px-2">{{ this.title }}</p>
   <div class="flex justify-between relative">
     <div class="w-full items-center max-h-[80%]">
-      <button class="absolute bg-white z-30 left-[3%] top-[35%] text-black bg-opacity-60 p-1 md:p-2 lg:p-3"
+      <button class="h-20 hover:opacity-100 opacity-45 transition-opacity duration-300 absolute bg-white z-30 left-[3%] top-[35%] text-black bg-opacity-60 p-1 md:p-2 lg:p-3"
               (click)="skipSlides('prev')">
-        <svg class="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-        </svg>
+        <i class="fas fa-chevron-left text-2xl md:text-3xl lg:text-4xl w-8 "></i>
       </button>
-      <button class="absolute bg-white z-30 left-[90%] top-[35%] text-black bg-opacity-60 p-1 md:p-2 lg:p-3"
+      <button class="h-20 hover:opacity-100 opacity-45 transition-opacity duration-300 absolute bg-white z-30 left-[90%] top-[35%] text-black bg-opacity-60 p-1 md:p-2 lg:p-3"
               (click)="skipSlides('next')">
-        <svg class="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
-        </svg>
+        <i class="fas fa-chevron-right text-2xl md:text-3xl lg:text-4xl w-8 "></i>
       </button>
       <ngx-slick-carousel class="carousel relative overflow-visible"
                           #slickModal="slick-carousel"
