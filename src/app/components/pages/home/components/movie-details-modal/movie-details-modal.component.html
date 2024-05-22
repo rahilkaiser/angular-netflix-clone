@@ -1,0 +1,34 @@
+<div class="modal-header relative p-0">
+  <div class="absolute inset-0 bg-gradient-to-t from-black"></div>
+  <img class="w-full object-cover" [src]="this.movie?.backdrop_path! | image">
+
+  <button type="button" class="absolute top-4 right-4 w-8 h-8  rounded-full border-2 border-white text-white close-button" aria-label="Close" (click)="activeModal.close('Cross click')">
+    <i class="fas fa-times group-hover:text-black"></i>
+  </button>
+
+  <div class="absolute bottom-4 left-4 flex items-center space-x-4">
+    <button
+      class="flex items-center bg-red-600 text-white py-2 px-6 rounded-md text-base hover:bg-red-700 transition duration-300 animated-element button-animation">
+      <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M3 22V2l18 10-18 10z"></path>
+      </svg>
+      Play
+    </button>
+  </div>
+</div>
+
+<div class="modal-body px-4 bg-black text-white">
+  <h3 class="text-2xl font-bold mb-2">{{this.movie?.title}}</h3>
+  <p class="text-gray-300 mb-4">{{this.movie?.overview}}</p>
+  <hr>
+</div>
+
+<div class="bg-black px-4 pb-4 text-white">
+  <h4 class="text-lg font-semibold mb-2">Info on <b>{{this.movie?.title}}</b></h4>
+  <div class="text-gray-400 space-y-1 text-xs">
+    <div><span class="font-bold text-gray-200">Genres: </span><span>Science Fiction, Horror, Action</span></div>
+    <div><span class="font-bold text-gray-200">Release date: </span><span>{{this.movie?.release_date | date}}</span></div>
+    <div><span class="font-bold text-gray-200">Average vote: </span><span>{{this.movie?.vote_average}}</span></div>
+    <div><span class="font-bold text-gray-200">Original language: </span><span>{{this.movie?.original_language}}</span></div>
+  </div>
+</div>

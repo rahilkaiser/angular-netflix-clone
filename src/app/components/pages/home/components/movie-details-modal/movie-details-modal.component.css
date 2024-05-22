@@ -1,0 +1,11 @@
+.close-button {
+  transition: background-color 0.4s, color 0.4s, border-color 0.4s;
+}
+
+.close-button:hover {
+  background-color: white;
+  color: black !important;
+  border-color: black !important;
+}
+
+

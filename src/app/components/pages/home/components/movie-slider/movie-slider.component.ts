@@ -1,9 +1,11 @@
-import {Component, Input, ViewChild} from '@angular/core';
+import {Component, inject, Input, ViewChild} from '@angular/core';
 import {SlickCarouselComponent, SlickCarouselModule} from "ngx-slick-carousel";
 import {NgForOf} from "@angular/common";
 import {Movie} from "../../../../../models/movie.model";
 import {DescriptionPipe} from "../../../../../pipes/description.pipe";
 import {ImagePipe} from "../../../../../pipes/image.pipe";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {MovieDetailsModalComponent} from "../movie-details-modal/movie-details-modal.component";
 
 
 @Component({
@@ -23,6 +25,8 @@ export class MovieSliderComponent {
   @ViewChild('slickModal') slickModal: SlickCarouselComponent | undefined;
   @Input() videos: Movie[] = [];
   @Input() title: string = '';
+
+  private modalService = inject(NgbModal);
 
   slideConfig = {
     slidesToShow: 4,
@@ -72,7 +76,9 @@ export class MovieSliderComponent {
     ]
   };
 
-  constructor() {
+  openModal(movie: Movie) {
+    const modalRef = this.modalService.open(MovieDetailsModalComponent, {windowClass: 'modal-holder',animation: true});
+    modalRef.componentInstance.movie = movie;
   }
 
   ngOnInit(): void {

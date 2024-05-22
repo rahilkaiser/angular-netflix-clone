@@ -35,13 +35,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   topRatedMovies: Movie[] = [];
   upcomingMovies: Movie[] = [];
 
-  bannerTitle = '';
-  bannerDetails= '';
+  bannerMovie: Movie | null = null;
   bannerVideoKey: string = '';
 
   private videoSubsription: Subscription | undefined;
   bannerVideoSub: Subscription | undefined;
-  bannerDetailsSub:  Subscription | undefined;
+  bannerDetailsSub: Subscription | undefined;
 
   sources = [
     this.videoService.getMovies(),
@@ -61,14 +60,13 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.videoSubsription = forkJoin(this.sources).pipe(
       map(([movies, tvShows, nowPlaying, upcoming, popular, topRated]) => {
         this.bannerDetailsSub = this.videoService.getBannerDetail(movies.results[0].id).subscribe(
-          (res:any) => {
-            this.bannerTitle = res.original_title;
-            this.bannerDetails = res.overview;
+          (res: any) => {
+            this.bannerMovie = res;
           }
         );
 
         this.bannerVideoSub = this.videoService.getBannerVideo(movies.results[0].id).subscribe(
-          (res:any) => {
+          (res: any) => {
             this.bannerVideoKey = res.results[0].key;
           }
         );
