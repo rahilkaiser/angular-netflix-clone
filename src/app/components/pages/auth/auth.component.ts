@@ -1,43 +1,39 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
+import {FormsModule} from "@angular/forms";
+import {AuthService} from "../../../services/auth.service";
 
 @Component({
   selector: 'app-auth',
   standalone: true,
-  imports: [],
+  imports: [
+    FormsModule
+  ],
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.css'
 })
 export class AuthComponent implements OnInit{
 
-  constructor(private router: Router) {
+  mail: string = '';
+  pass: string = '';
+
+  constructor(private router: Router, private authService: AuthService) {
   }
 
   ngOnInit(): void {
-    (window as any).onSignIn = this.onSignIn.bind(this);
   }
 
-  private decodeToken(token: string) {
-    return JSON.parse(atob(token.split('.')[1]));
-  }
 
-  onSignIn(googleUser: any): void {
-    console.log('Google User: ', googleUser);
-
-    if (googleUser) {
-      //decode the token
-      const payload = this.decodeToken(googleUser.credential);
-      //store the token in session
-      sessionStorage.setItem('access_token', JSON.stringify(payload));
-      //navigate to home
-
-      this.router.navigate(['home']).then(() => {
-        document.location.reload();
-      })
-    }
-  }
 
   signInAnonymously() {
     this.router.navigate(['home']);
+  }
+
+  loginEmailPassword() {
+    this.authService.login(this.mail, this.pass).subscribe({
+      next: result => {
+        this.router.navigate(['home']);
+      }
+    });
   }
 }

@@ -1,3 +1,5 @@
+import {AuthService} from "../../../../../services/auth.service";
+
 declare var google: any;
 
 import {Component, Input} from '@angular/core';
@@ -16,12 +18,12 @@ import {Router} from "@angular/router";
 })
 export class HeaderComponent {
 
-  @Input() profileImg: string |null = null;
+  @Input() profileImg: string | null = null;
   @Input() userName: string | null = null;
 
   isMenuOpen = false;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private authService: AuthService) {
 
   }
 
@@ -36,10 +38,9 @@ export class HeaderComponent {
   }
 
   signOut() {
-    google.accounts.id.disableAutoSelect();
-    sessionStorage.removeItem('access_token');
-    this.router.navigateByUrl('/' ).then( () => {
-      document.location.reload();
-    });
+    this.authService.signOut().then(() => {
+      this.router.navigate(['auth']);
+    })
+
   }
 }
