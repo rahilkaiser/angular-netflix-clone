@@ -1,8 +1,29 @@
-<div class="bg-black">
-  <app-header
-    [profileImg]="this.profileImage"
-    [userName]="this.userName"
-  ></app-header>
-  <app-banner></app-banner>
-  <app-movie-slider></app-movie-slider>
-</div>
+<app-header
+  [profileImg]="this.profileImage"
+  [userName]="this.userName"
+></app-header>
+<app-banner
+[title]="this.bannerTitle"
+[description]="this.bannerDetails"
+[videoKey]="this.bannerVideoKey"
+></app-banner>
+<app-movie-slider
+  [videos]="this.popularMovies"
+  [title]="'Popular Movies'"
+></app-movie-slider>
+
+<app-movie-slider
+  [videos]="this.tvShows"
+  [title]="'Trending Tv Shows'"
+></app-movie-slider>
+
+<app-movie-slider
+  [videos]="this.nowPlayingMovies"
+  [title]="'Now Playing Movies'"
+></app-movie-slider>
+
+<app-movie-slider
+  [videos]="this.upcomingMovies"
+  [title]="'Upcoming Movies'"
+></app-movie-slider>
+

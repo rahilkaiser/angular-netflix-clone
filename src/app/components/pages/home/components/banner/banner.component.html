@@ -1,28 +1,31 @@
-<iframe
-  class="w-full h-full absolute top-0 left-0"
-  src="https://www.youtube.com/embed/KSCjIRdu1ZY?rel=0&modestbranding=1&autohide=1&mute=1&showinfo=0&controls=0&autoplay=1&loop=1&playlist=KSCjIRdu1ZY"
-  allow="autoplay"
-  frameborder="0"
-></iframe>
-
 <div class="relative h-screen overflow-hidden">
+  <ng-container *ngIf="this.videoUrl">
+    <iframe
+      class="absolute -top-40 -left-1/4 z-0 overflow-hidden"
+      id="ytplayer" type="text/html" width="150%" height="150%" allow="autoplay"
+      [src]="this.videoUrl"
+      frameborder="0" allowfullscreen></iframe>
+  </ng-container>
+
   <div class="absolute inset-0 flex flex-col justify-center items-start px-10 text-white bg-gradient-to-tr from-black">
-    <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
-      Movie Title
+    <h1 class="text-2xl md:text-4xl font-bold mb-4 z-10 animated-element title-animation">
+      {{ this.title }}
     </h1>
-    <p class="text-base max-w-lg mb-6">
-      This is a brief description of the movie, giving viewers a glimpse of what it's about.
+    <p class="text-base max-w-lg mb-6 animated-element description-animation">
+      {{ this.description }}
     </p>
 
     <div class="flex space-x-4">
-      <button class="flex items-center bg-red-600 text-white py-2 px-6 rounded-md text-base hover:bg-red-700 transition duration-300">
+      <button
+        class="flex items-center bg-red-600 text-white py-2 px-6 rounded-md text-base hover:bg-red-700 transition duration-300 animated-element button-animation">
         <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
           <path d="M3 22V2l18 10-18 10z"></path>
         </svg>
         Play
       </button>
 
-      <button class="bg-gray-700 bg-opacity-70 py-2 px-6 rounded-md text-base hover:bg-gray-600 transition duration-300">
+      <button
+        class="bg-gray-700 bg-opacity-70 py-2 px-6 rounded-md text-base hover:bg-gray-600 transition duration-300 animated-element button-animation">
         More Info
       </button>
     </div>
