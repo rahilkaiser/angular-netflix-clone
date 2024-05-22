@@ -19,9 +19,9 @@
         <div class="ml-4 flex items-center md:ml-6">
           <div class="ml-3 relative">
             <div class="flex justify-between items-center">
-              <span class="text-white font-bold text-xs pr-4">Welcome {{this.userName}}</span>
+              <span class="text-white font-bold text-xs pr-4">Welcome {{this.userName ? this.userName : 'Guest' }}</span>
               <button (click)="toggleMenu()" class="rounded-full">
-                <img class="h-8 w-8 rounded-full" src="{{this.profileImg}}" alt="">
+                <img class="h-8 w-8 rounded-full" src="{{this.profileImg ? this.profileImg : 'https://randomuser.me/api/portraits/men/1.jpg'}}" alt="">
               </button>
             </div>
             <div [ngClass]="{'block': isMenuOpen, 'hidden': !isMenuOpen}" class="bg-white absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1">

@@ -35,9 +35,11 @@ export class AuthComponent implements OnInit{
         document.location.reload();
       })
     }
-
   }
 
-
-
+  signInAnonymously() {
+    this.router.navigate(['home']).then(() => {
+      document.location.reload();
+    })
+  }
 }
