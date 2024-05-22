@@ -40,4 +40,8 @@ export class AuthComponent implements OnInit{
       }
     });
   }
+
+  redirectToSignUp() {
+    this.router.navigate(['register']);
+  }
 }

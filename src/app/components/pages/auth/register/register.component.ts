@@ -31,4 +31,7 @@ export class RegisterComponent {
     );
   }
 
+  navigateToLogin() {
+    this.router.navigate(['auth']);
+  }
 }
