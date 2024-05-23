@@ -56,13 +56,13 @@ export class MoviesComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.videoSubsription = forkJoin(this.sources).pipe(
       map(([trending, topRated, action, animation, comedy]) => {
-        this.bannerDetailsSub = this.videoService.getBannerDetail(comedy.results[1].id).subscribe(
+        this.bannerDetailsSub = this.videoService.getBannerDetail(comedy.results[2].id).subscribe(
           (res: any) => {
             this.bannerMovie = res;
           }
         );
 
-        this.bannerVideoSub = this.videoService.getBannerVideo(comedy.results[1].id).subscribe(
+        this.bannerVideoSub = this.videoService.getBannerVideo(comedy.results[2].id).subscribe(
           (res: any) => {
             this.bannerVideoKey = res.results[0].key;
           }
