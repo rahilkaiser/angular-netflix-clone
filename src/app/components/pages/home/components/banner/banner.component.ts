@@ -37,7 +37,7 @@ export class BannerComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['videoKey'] && changes['videoKey'].currentValue) {
       this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-        `https://www.youtube.com/embed/${changes['videoKey'].currentValue}?autoplay=1&mute=1&loop=1&controls=0&autohide=1&showinfo=0&modestbranding=1&playsinline=1&enablejsapi=1&start=50`
+        `https://www.youtube.com/embed/${changes['videoKey'].currentValue}?autoplay=1&mute=1&loop=1&controls=0&autohide=1&showinfo=0&modestbranding=1&playsinline=1&enablejsapi=1&start=50&loop=1`
       );
     }
   }
