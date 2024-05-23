@@ -1,8 +1,11 @@
 import {Injectable} from '@angular/core';
-import {Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile} from "@angular/fire/auth";
+import {updateProfile} from "@angular/fire/auth";
 import {from, Observable, switchMap} from "rxjs";
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
+import {GoogleAuthProvider} from "@firebase/auth";
+import {Router} from "@angular/router";
+import {User} from "../models/user.model";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +13,7 @@ import {AngularFirestore} from "@angular/fire/compat/firestore";
 export class AuthService {
 
   constructor(private firebaseAuth: AngularFireAuth,
-              private firestore: AngularFirestore) {
+              private firestore: AngularFirestore, private router: Router) {
   }
 
   /** Registers User with Email and Password
@@ -22,8 +25,8 @@ export class AuthService {
   register(email: string, username: string, password: string): Observable<void> {
     const promise = this.firebaseAuth.createUserWithEmailAndPassword(email, password).then(userCredential => {
       const user = userCredential.user;
-      if(user) {
-        return updateProfile(user, { displayName: username }).then(
+      if (user) {
+        return updateProfile(user, {displayName: username}).then(
           () => {
             return this.firestore.collection('users').doc(user.uid).set({
               username: username,
@@ -42,30 +45,6 @@ export class AuthService {
     });
     return from(promise);
   }
-  //
-  // /** Stores Userinformation locally
-  //  *
-  //  * @param email
-  //  * @param username
-  //  * @private
-  //  */
-  // private storeUserLocally(email: string, username: string): Promise<void> {
-  //   return new Promise<void>((resolve, reject) => {
-  //     try {
-  //       localStorage.setItem('user', JSON.stringify({ email, username }));
-  //       resolve();
-  //     } catch (error) {
-  //       reject(error);
-  //     }
-  //   });
-  // }
-  //
-  // /** Get Userinfo from localStorage
-  //  *
-  //  */
-  // getUser() {
-  //   return JSON.parse(localStorage.getItem('user') || '{}');
-  // }
 
   /** Signs the User out
    *
@@ -75,10 +54,43 @@ export class AuthService {
     return this.firebaseAuth.signOut();
   }
 
-  signInAnonymously(){
+  signInAnonymously() {
     const promise = this.firebaseAuth.signInAnonymously().then(
-      ()=> {}
+      () => {
+      }
     );
     return from(promise);
   }
+
+  signInWithGoogle(): Observable<void> {
+    let promise = this.firebaseAuth.signInWithPopup(new GoogleAuthProvider()).then(userCredential => {
+      const user = userCredential.user;
+      if (user) {
+        return updateProfile(user, {displayName: user.displayName}).then(
+          () => {
+            return this.firestore.collection('users').doc(user.uid).set({
+              username: user.displayName,
+              email: user.email,
+              photoURL: user.photoURL
+            });
+          }
+        );
+      }
+      return;
+    });
+    return from(promise);
+  }
+
+  getUserData(): Observable<any> {
+    return this.firebaseAuth.authState.pipe(
+      switchMap(user => {
+        if (user) {
+          return this.firestore.collection('users').doc(user.uid).valueChanges();
+        } else {
+          return new Observable<User | null>(observer => observer.next(null));        }
+      })
+    );
+  }
+
+
 }

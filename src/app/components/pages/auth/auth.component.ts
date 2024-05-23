@@ -20,10 +20,7 @@ export class AuthComponent implements OnInit{
   constructor(private router: Router, private authService: AuthService) {
   }
 
-  ngOnInit(): void {
-  }
-
-
+  ngOnInit(): void {}
 
   signInAnonymously() {
     this.authService.signInAnonymously().subscribe({
@@ -36,6 +33,15 @@ export class AuthComponent implements OnInit{
   loginEmailPassword() {
     this.authService.login(this.mail, this.pass).subscribe({
       next: result => {
+        this.router.navigate(['home']);
+      }
+    });
+  }
+
+  loginGoogle() {
+    this.authService.signInWithGoogle().subscribe({
+      next: result => {
+        console.log(result);
         this.router.navigate(['home']);
       }
     });

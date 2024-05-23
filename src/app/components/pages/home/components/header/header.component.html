@@ -19,9 +19,9 @@
         <div class="ml-4 flex items-center md:ml-6">
           <div class="ml-3 relative">
             <div class="flex justify-between items-center">
-              <span class="text-white font-bold text-xs pr-4">Welcome {{this.userName ? this.userName : 'Guest' }}</span>
+              <span class="text-white font-bold text-xs pr-4">Welcome {{this.userData ? this.userData.username : 'Guest' }}</span>
               <button (click)="toggleMenu()" class="rounded-full">
-                <img class="h-8 w-8 rounded-full" src="{{this.profileImg ? this.profileImg : 'https://randomuser.me/api/portraits/men/1.jpg'}}" alt="">
+                <img class="h-8 w-8 rounded-full" src="{{(this.userData && this.userData.photoURL) ? this.userData!.photoURL : 'https://www.horizon-messe.de/wp-content/uploads/2017/04/blank-profile-picture-973460_1280-e1527502054840.png'}}" alt="">
               </button>
             </div>
             <div [ngClass]="{'block': isMenuOpen, 'hidden': !isMenuOpen}" class="bg-white absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1">

@@ -1,4 +1,4 @@
-import { ApplicationConfig } from '@angular/core';
+import {ApplicationConfig, importProvidersFrom} from '@angular/core';
 import {provideRouter, withHashLocation} from '@angular/router';
 
 import { routes } from './app.routes';
@@ -14,6 +14,7 @@ import {getPerformance, providePerformance} from "@angular/fire/performance";
 import {getStorage, provideStorage} from "@angular/fire/storage";
 import {AuthGuard} from "@angular/fire/auth-guard";
 import {FIREBASE_OPTIONS} from "@angular/fire/compat";
+import {GoogleAuthProvider} from "@firebase/auth";
 
 export const appConfig: ApplicationConfig = {
 
