@@ -14,7 +14,7 @@
                           #slickModal="slick-carousel"
                           [config]="slideConfig">
         <div ngxSlickItem *ngFor="let video of videos" class="px-2" >
-            <div class="relative group" (click)="this.openModal(video)">
+            <div class="relative group cursor-pointer" (click)="this.openModal(video)">
               <div class="bg-gray-800 rounded-md transform transition-transform duration-300 group-hover:scale-105 group-hover:z-50 overflow-visible">
                 <img src="{{ video.poster_path | image }}" alt="Movie Poster"
                      class="w-full h-full object-cover rounded-md "/>
