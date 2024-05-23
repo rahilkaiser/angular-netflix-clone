@@ -1,0 +1,29 @@
+<app-banner
+  [videoKey]="this.bannerVideoKey"
+  [movie]="this.bannerMovie"
+></app-banner>
+<app-movie-slider
+  [videos]="this.trendingMovies"
+  [title]="'Trending Movies'"
+></app-movie-slider>
+
+<app-movie-slider
+  [videos]="this.topRatedMovies"
+  [title]="'Top Rated Movies'"
+></app-movie-slider>
+
+<app-movie-slider
+  [videos]="this.actionMovies"
+  [title]="'Action'"
+></app-movie-slider>
+
+<app-movie-slider
+  [videos]="this.animationMovies"
+  [title]="'Animation'"
+></app-movie-slider>
+
+<app-movie-slider
+  [videos]="this.comedyMovies"
+  [title]="'Comedy'"
+></app-movie-slider>
+

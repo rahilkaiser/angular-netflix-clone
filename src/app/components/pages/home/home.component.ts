@@ -24,9 +24,6 @@ import {DescriptionPipe} from "../../../pipes/description.pipe";
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  userName: string | null = null;
-  profileImage: string | null = null;
-
   movies: Movie[] = [];
   tvShows: Movie[] = [];
   ratedMovies: Movie[] = [];
@@ -55,8 +52,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.loadUserData();
-
     this.videoSubsription = forkJoin(this.sources).pipe(
       map(([movies, tvShows, nowPlaying, upcoming, popular, topRated]) => {
         this.bannerDetailsSub = this.videoService.getBannerDetail(movies.results[0].id).subscribe(
@@ -92,18 +87,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
     if (this.bannerDetailsSub) {
       this.bannerDetailsSub.unsubscribe();
-    }
-  }
-
-  private loadUserData(): void {
-    const token = sessionStorage.getItem('access_token');
-    if (token) {
-      const payload = JSON.parse(token);
-      this.userName = payload.name;
-      this.profileImage = payload.picture;
-
-      console.log(this.profileImage);
-      console.log(this.userName);
     }
   }
 }

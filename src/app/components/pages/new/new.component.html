@@ -1,0 +1,14 @@
+<app-banner
+  [videoKey]="this.bannerVideoKey"
+  [movie]="this.bannerMovie"
+></app-banner>
+<app-movie-slider
+  [videos]="this.topRatedMovies"
+  [title]="'Top Rated Movies'"
+></app-movie-slider>
+
+<app-movie-slider
+  [videos]="this.upcomingMovies"
+  [title]="'Upcoming Movies'"
+></app-movie-slider>
+

@@ -6,11 +6,11 @@
         </button>
         <div class="hidden md:block">
           <div class="ml-10 flex space-x-4">
-            <a href="#" class="text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
-            <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">TV Shows</a>
-            <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Movies</a>
-            <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">New & Popular</a>
-            <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">My List</a>
+            <a (click)="navigateTo('home')" class=" cursor-pointer text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+            <a (click)="navigateTo('tv')" class=" cursor-pointer text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">TV Shows</a>
+            <a (click)="navigateTo('movies')" class=" cursor-pointer text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Movies</a>
+            <a (click)="navigateTo('new')" class=" cursor-pointer text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">New & Popular</a>
+            <a (click)="navigateTo('mylist')" class=" cursor-pointer text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">My List</a>
           </div>
         </div>
       </div>

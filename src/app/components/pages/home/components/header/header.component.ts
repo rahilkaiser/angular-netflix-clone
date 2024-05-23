@@ -20,9 +20,6 @@ import {document} from "postcss";
 })
 export class HeaderComponent implements OnInit{
 
-  @Input() profileImg: string | null = null;
-  @Input() userName: string | null = null;
-
   userData: User | null = null;
 
   isMenuOpen = false;
@@ -56,4 +53,7 @@ export class HeaderComponent implements OnInit{
   }
 
 
+  navigateTo(route: string) {
+    this.router.navigate([route]);
+  }
 }
